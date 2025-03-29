@@ -17,6 +17,8 @@ If you're using this project, we expect you to be able to solve basic issues you
 
 Most weird issues will be solvable via just throwing the whole `session/` folder out the window and re-building.
 
+retard
+
 ## Adding packages
 Again this is a rather advanced project so you'll have to read source code in order to contribute. If you're interested, check how packages are defined in `pkgs/` and try to do one yourself. They have to *at least* run from a tivOS chroot!
 
