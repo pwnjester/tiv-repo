@@ -1,0 +1,33 @@
+category="system"
+name="linux-headers"
+
+beauty_name="Linux Headers"
+description="The Linux Headers are part of the kernel, although they are shipped separately. The headers act as an interface between internal kernel components and also between userspace and the kernel."
+uri="https://kernel.org/"
+version="6.6.41"
+
+dependencies=()
+
+system="host"
+build_system="cmd"
+
+cmd() {
+	wget -nc https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.6.41.tar.xz >/dev/null 2>&1
+	if [[ "$(md5sum "linux-6.6.41.tar.xz" | sed 's/ .*//g')" != "2201c0201a2a803da345a38dbdc38fcf" ]]; then
+		echo -e "${RED}!${CLEAR} Invalid md5sum! Exiting immediately!"
+		exit 1
+	fi
+
+	tar xpvf linux-6.6.41.tar.xz
+	cd linux-6.6.41
+
+	make mrproper
+	make headers
+	find usr/include -type f ! -name '*.h' -delete
+
+	mkdir "../session/target/transition"
+	cp -r usr/include/* "../session/target/transition"
+
+	cd ..
+	rm -rf linux-6.6.41 linux-6.6.41.tar.xz
+}

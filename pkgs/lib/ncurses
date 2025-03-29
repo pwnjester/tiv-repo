@@ -1,0 +1,17 @@
+category="lib"
+name="ncurses"
+
+beauty_name="GNU Ncurses"
+description="ncurses (new curses) is a programming library providing an application programming interface (API) that allows writing text-based user interfaces (TUI) in a computer terminal-independent manner."
+uri="https://ftp.gnu.org/gnu/ncurses/"
+version="6.5"
+
+dependencies=()
+
+system="tivos"
+build_system="autotools"
+
+archive="https://ftp.gnu.org/gnu/ncurses/ncurses-6.5.tar.gz"
+archive_md5sum="ac2d2629296f04c8537ca706b6977687"
+extra_parameters="--with-shared --without-debug --without-normal --with-cxx-shared --enable-pc-files"
+after_build="ln -sf libncursesw.so /transition/usr/lib/libncurses.so && ln -sf libncursesw.so /usr/lib/libncurses.so"

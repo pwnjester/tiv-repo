@@ -1,0 +1,15 @@
+category="system"
+name="make"
+
+beauty_name="GNU Make"
+description="GNU Make is a tool which controls the generation of executables and other non-source files of a program from the program's source files."
+uri="https://www.gnu.org/software/make/"
+version="4.4.1"
+
+dependencies=()
+
+system="tivos"
+build_system="autotools"
+
+archive="https://ftp.gnu.org/gnu/make/make-4.4.1.tar.gz"
+archive_md5sum="c8469a3713cbbe04d955d4ae4be23eeb"
